@@ -41,4 +41,10 @@ public class CartDto {
 		this.cartProducts = cartProducts;
 	}
 
+	@Override
+	public String toString() {
+		return "cartId=" + cartId + " customerName=" + customerName + " <br><u>Sepetteki Ürünler</u><br>" + cartProducts
+				+ "]";
+	}
+
 }

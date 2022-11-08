@@ -31,7 +31,7 @@ public class CategoryDto {
 
 	@Override
 	public String toString() {
-		return "CategoryDto [categoryId=" + categoryId + ", categoryName=" + categoryName + "]";
+		return "[id=" + categoryId + ", kategori ismi=" + categoryName + "]";
 	}
 
 }

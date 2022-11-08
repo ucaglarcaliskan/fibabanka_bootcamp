@@ -81,9 +81,10 @@ public class CartProductDto {
 
 	@Override
 	public String toString() {
-		return "CartProductDto [cartProductId=" + cartProductId + ", cartId=" + cartId + ", productId=" + productId
-				+ ", salesQuantity=" + salesQuantity + ", salesPrice=" + salesPrice + ", lineAmount=" + lineAmount
-				+ "]";
+//		return "[cartId=" + cartId + ", productId=" + productId + ", salesQuantity=" + salesQuantity + ", salesPrice="
+//				+ salesPrice + ", lineAmount=" + lineAmount + ", productName=" + productName + "]";
+		return "Ürün Adı: " + productName + "<br>Adet: " + salesQuantity + "<br>Adet Fiyatı: " + salesPrice
+				+ "<br>Toplam: " + lineAmount;
 	}
 
 }
