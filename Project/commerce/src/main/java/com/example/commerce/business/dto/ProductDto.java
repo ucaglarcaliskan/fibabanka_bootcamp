@@ -51,8 +51,8 @@ public class ProductDto {
 
 	@Override
 	public String toString() {
-		return "ProductDto [productId=" + productId + ", productName=" + productName + ", salesPrice=" + salesPrice
-				+ ", categoryId=" + categoryId + "]";
+		return "[productId=" + productId + ", productName=" + productName + ", salesPrice=" + salesPrice
+				+ ", categoryId=" + categoryId + "]<br>";
 	}
 
 }

@@ -83,7 +83,8 @@ public class CommerceServiceImpl implements CommerceService {
 		CartDto cartDto = restTemplate.getForObject(url, CartDto.class);
 		for (CartProductDto cartProductDto : cartDto.getCartProducts()) {
 			ProductDto productDto = findProduct(cartProductDto.getProductId());
-			cartProductDto.setProductName(productDto.getProductName());
+			if (productDto != null)
+				cartProductDto.setProductName(productDto.getProductName());
 		}
 		return cartDto;
 	}

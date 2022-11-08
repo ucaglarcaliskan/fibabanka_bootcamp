@@ -38,8 +38,8 @@ public class CartServiceImpl implements CartService {
 	public CartDto find(long cartId) {
 		Optional<Cart> optional = cartRepository.findById(cartId);
 		if (!optional.isPresent()) {
-			System.out.println("Ödeme yapmak için sepet bulunamadı.");
-			return null; // TODO null check
+			System.out.println("Sepet bulunamadı.");
+			return null;
 		}
 		Cart cart = optional.get();
 		List<CartProduct> cartProducts = cartProductRepository.findByCartId(cartId);

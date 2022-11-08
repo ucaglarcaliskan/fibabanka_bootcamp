@@ -21,8 +21,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<ProductDto> findProductsByCategoryId(long categoryId) {
-		List<Product> productList = productRepository
-				.findProductsByCategoryId(categoryId);
+		List<Product> productList = productRepository.findProductsByCategoryId(categoryId);
 		List<ProductDto> productDtoList = new ArrayList<>();
 		for (Product product : productList) {
 			productDtoList.add(toDto(product));
@@ -39,11 +38,10 @@ public class ProductServiceImpl implements ProductService {
 			return productDto;
 		}
 		return null;
-		// TODO null check
 	}
 
 	private ProductDto toDto(Product product) {
-		return new ProductDto(product.getProductId(), product.getProductName(),
-				product.getSalesPrice(), product.getCategoryId());
+		return new ProductDto(product.getProductId(), product.getProductName(), product.getSalesPrice(),
+				product.getCategoryId());
 	}
 }
