@@ -21,6 +21,15 @@ public class CartProduct {
 	public CartProduct() {
 	}
 
+	public CartProduct(long cartProductId, long cartId, long productId, long salesQuantity, double salesPrice) {
+		this.cartProductId = cartProductId;
+		this.cartId = cartId;
+		this.productId = productId;
+		this.salesQuantity = salesQuantity;
+		this.salesPrice = salesPrice;
+		this.lineAmount = salesQuantity * salesPrice;
+	}
+
 	public CartProduct(long cartProductId, long cartId, long productId, long salesQuantity, double salesPrice,
 			double lineAmount) {
 		this.cartProductId = cartProductId;
@@ -69,10 +78,12 @@ public class CartProduct {
 
 	public void setSalesQuantity(long salesQuantity) {
 		this.salesQuantity = salesQuantity;
+		this.lineAmount = salesQuantity * salesPrice;
 	}
 
 	public void setSalesPrice(double salesPrice) {
 		this.salesPrice = salesPrice;
+		this.lineAmount = salesQuantity * salesPrice;
 	}
 
 	public void setLineAmount(double lineAmount) {
