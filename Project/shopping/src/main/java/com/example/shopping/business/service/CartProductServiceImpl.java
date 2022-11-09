@@ -17,12 +17,25 @@ public class CartProductServiceImpl implements CartProductService {
 
 	@Override
 	public void deleteProduct(long cartId, long productId) {
-		cartProductRepository.deleteByCartIdAndProductId(cartId, productId);
+		CartProduct cartProduct = cartProductRepository.findByCartIdAndProductId(cartId, productId);
+		if (cartProduct.getSalesQuantity() > 1) {
+			cartProduct.setSalesQuantity(cartProduct.getSalesQuantity() - 1);
+			cartProductRepository.save(cartProduct);
+		} else {
+			cartProductRepository.deleteByCartIdAndProductId(cartId, productId);
+		}
 	}
 
 	@Override
 	public void addCartProduct(CartProductDto cartProductDto) {
-		cartProductRepository.save(toEntity(cartProductDto));
+		CartProduct cartProduct = cartProductRepository.findByCartIdAndProductId(cartProductDto.getCartId(),
+				cartProductDto.getProductId());
+		if (cartProduct != null) {
+			cartProduct.setSalesQuantity(cartProduct.getSalesQuantity() + cartProductDto.getSalesQuantity());
+			cartProductRepository.save(cartProduct);
+		} else {
+			cartProductRepository.save(toEntity(cartProductDto));
+		}
 	}
 
 	public CartProduct toEntity(CartProductDto cartProductDto) {
